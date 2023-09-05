@@ -1,0 +1,129 @@
+{ "tabs": [
+	{"position": 1,
+	"title": "Affiliation and Image File Folder",
+	"panels": [
+		{
+			"type": "dropdown",
+			"title": "Organization",
+			"desc": "Please select the group or organization<br>you are working with on this project, if any:",
+			"hint": "Some people engage with North Country Wild through collaborations with school groups or by checking a game camera out from Nature Up North or local library. If you are affiliated with a group, please enter it here.",
+			"values": {
+				"K12 School": [
+					"Belleville Henderson Central School",
+					"Brasher Falls Central School",
+					"Brushton-Moira Central School",
+					"Canton Central Schools",
+					"Clifton-Fine Central Schools",
+					"Colton-Pierrepont Central School",
+					"Gouverneur Central Schools",
+					"Indian River School District",
+					"Lisbon Central School",
+					"Little River Community School",
+					"Massena Central Schools",
+					"Ogdensburg City Schools",
+					"Salmon River Schools",
+					"Saranac Lake Central Schools",
+					"St. Regis Central Schools"
+				],
+				"College/University": [
+					"Clarkson University",
+					"Nature Up North (St. Lawrence University)",
+					"SUNY Canton",
+					"SUNY Potsdam"
+				],
+				"Library": [
+					"Canton Free Library",
+					"Clifton Community Library",
+					"Hepburn Library of Colton"
+				],
+				"Community Volunteer": [],
+				"Other": []
+			},
+		"key": "affiliation"
+		},
+		{
+			"type": "fileSelect",
+			"title": "Image File Folder",
+			"desc": "Select your pictures:",
+			"hint": "Browse for the folder that contains the images that you wish to upload. This folder can have sub-folders within it.",
+			"key": "imageFiles"
+		}
+	]},
+		
+	{"position": 2,
+	"title": "Deployment Dates and Location",
+	"panels": [
+		{
+			"type": "multiPanel",
+			"title": "Deployment Dates",
+			"desc": "Start and end dates of the game camera deployment",
+			"hint": "Enter the the start and end dates of deployment for the camera. Click the calender icon to select the dates.",
+			"vertical": true,
+			"subPanels": [
+				{
+					"type": "date",
+					"desc": "Start",
+					"key": "startDate"
+				},
+				{
+					"type": "date",
+					"desc": "End",
+					"key": "endDate"
+				}
+			]},
+		{"type": "latlongPanel",
+			"title": "Deployment Location",
+			"desc": "<p>Please find your location at <a href=\"https://www.latlong.net/\">https://www.latlong.net/</a></p><p>and copy/paste the \"Location page url\" into the text field below.</p>",
+			"url": "https://www.latlong.net/",
+			"key": "location"
+		}
+	]},
+	
+	{"position": 3,
+	"title": "Habitat and Urbanization",
+	"panels": [
+		{"type": "multiChoiceList",
+			"title": "Habitat",
+		"desc": "Which of the following terms would characterize the habitat<br>in the location where the camera was placed?<br/>(check all that apply)",
+		"hint": "<p>Deciduous Forest: Dominated by mainly hardwood species including for example maple, beech, cherry, and birch.</p><p>Evergreen Forest: Dominated by mainly evergreen species including for example white pine, red spruce, balsam fir, hemlock, and possibly plantation pines such as Scots pine.</p><p>Mixed Forest: Hardwood and Evergreen trees are present in a balanced mix.</p><p>Plantation Forest: Trees (usually Pines) are evenly spaced in an organized fashion throuhgout the forest and there are mainly one single species making up the forest leaf-layer (canpoy).</p><p>Natural Field or Meadow: Area dominated by grasses and plants such as goldenrod and milkweed; possibly interspersed with a few young trees such as pine or cedar. Not mowed.</p><p>Public Park/School Grounds/Lawn: Primarily open area with some trees interspersed; grass is the predominant vegetation, perhaps supplemented with e.g. flower beds. Grass is regularly maintained by mowing.</p><p>Wetland edge: If the camera was placed within 15 feet of a pond or wetland, please check this box.</p><p>Edge between two habitats: If the camera is located within about 25 feet of more than one of the habitats listed above, please select this choice.",
+		"values": [
+			"Other",
+			"Deciduous Forest",
+			"Mixed Forest",
+			"Evergreen Forest",
+			"Plantation Forest",
+			"Natural Field or Meadow (Old Field)",
+			"Agricultural Field",
+			"Public Park/School Grounds",
+			"Home Lawn",
+			"Garden",
+			"Wetland Edge",
+			"Edge between two habitats"
+		],
+		"key": "habitat"
+		},
+		
+		{"type": "singleChoiceList",
+			"title": "Urbanization",
+		"desc": "How urbanized is the location where the camera was placed? (Please check one)",
+		"hint": "Rural: Camera was placed on public or private land in a rural location away from much human influence.\n\n Suburan/moderately urban: Camera was placed near the edge of a town or village where there are more homes and other development than in rural places.\n\nPrimarily urban: Camera was placed inside of a town or village in a location where automobile traffic is prevalent as is the amount of developed space (storefront, parking areas, etc.).",
+		"values": [
+			"Urban",
+			"Suburban",
+			"Rural",
+			"Wild"
+		],
+		"key": "urbanization"
+		}
+	]},
+	
+	{"position": 4,
+	"title": "Any Comments?",
+	"panels": [
+		{
+			"type": "form",
+			"desc": "Is there anything else you'd like to share about this batch of pictures?",
+			"key": "comments"
+		}
+	]}
+]}
