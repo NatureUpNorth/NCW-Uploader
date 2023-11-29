@@ -1,7 +1,15 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import static java.awt.SystemColor.desktop;
 
 public class LoginPanel extends JPanel {
     private JButton loginButton, resetButton, signUpButton;
@@ -52,28 +60,34 @@ public class LoginPanel extends JPanel {
         loginButton = new JButton("Log In");
         loginButton.addActionListener(target);
         resetButton = new JButton("Reset Password");
-        resetButton.addActionListener(target)
+        resetButton.addActionListener(target);
 
-        // add sign up button
-        signUpButton = new JButton("Sign Up")
+        signUpButton = new JButton("Sign Up");
         signUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String url = "https://www.natureupnorth.org/user/register";
 
-            try {
-                String url = "https://www.natureupnorth.org/user/register"
+                    if (Desktop.isDesktopSupported()) {
+                        Desktop desktop = Desktop.getDesktop();
 
-                if(Desktop.isDesktopSupported()){
-                    Desktop go = Desktop.getDesktop();
-
-                    if (desktop.isSupported(Desktop.Action.BROWSE)) {
-                        desktop.browse(url);
+                        if (desktop.isSupported(Desktop.Action.BROWSE)) {
+                            desktop.browse(new URI(url));
+                        }
                     }
-                }
-            } catch (IOException | URISyntaxException ex) {
+                } catch (IOException | URISyntaxException ex) {
                     ex.printStackTrace();
                 }
-                
+            }
         });
+        passwordField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                loginButton.doClick();
+            }
+        });
         bottomPanel.add(loginButton);
         bottomPanel.add(resetButton);
         bottomPanel.add(signUpButton);
@@ -83,12 +97,4 @@ public class LoginPanel extends JPanel {
         super.setBorder(new EmptyBorder(10, 10, 10, 10));
     }
 
-    // make enter work
-    private class EnterListener implements KeyListener{
-        public void keyPressed(KeyEvent e){
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                loginButton.doClick();
-            }
-        }
-    }
 }
